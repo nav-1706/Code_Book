@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "unordered_set": "cpp",
+        "climits": "cpp",
+        "algorithm": "cpp",
+        "iostream": "cpp",
+        "queue": "cpp",
+        "vector": "cpp",
+        "utility": "cpp"
+    }
+}

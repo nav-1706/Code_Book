@@ -1,0 +1,56 @@
+------------------------------------------------------
+* Graph Traversal
+------------------------------------------------------
+
+To read/traverse any graph we have two techniques:
+1. Depth first traversal/search (recursive)
+2. Breadth first traversal/search --> queue
+
+------------------------------------------------------
+* Depth First Traversal
+------------------------------------------------------
+
+Q: Given a graph, check weather there is a path between any 2 vertices or not?
+
+Ans: If there is a path from source neighbour to destination, then there is a path from neighbour to destination via the source
+
+------------------------------------------------------
+* Breadth First Traversal (used for shortest path)
+------------------------------------------------------
+
+3:10:00 onwards
+
+while(!qu.empty()){
+
+        int n = qu.size();
+
+        for(int i=0; i<n; i++){
+
+            int curr = qu.front();
+            qu.pop();
+
+            for(auto neighbour: graph[curr]){
+
+                if(!visited.count(neighbour)){
+                    qu.push(neighbour);
+                    visited.insert(neighbour); // yahi par visisted mark kar diya taaki baar baa queue me push na ho 
+                    dist[neighbour] = dist[curr]+1; // unweighted or works well when all edges have same weight
+                }
+            }
+        }
+
+        /*
+        
+        Very Important Note:
+            1. Jab bahar wala 'for' loop complete hoga, tab hamara ek lavel traverse ho chuka hoga
+
+            2. For example: Refer 2.1.png 
+                i) let source be 4
+
+                ii) so when the 1st time the upper for loop will be completed, the source(1st level) 4 will be popped from the queue and the queue will only have neighbours of 1st level(source, which are not visited before) i.e 3,0
+
+                iii) When the upper loop completed 2nd times, the source(2nd level --> neighbour of 1st level) will be popped, i.e. 0 and 3 will be popped and the queue will have only elements of 3rd leve(neighbour of 2nd level, which are not visited before) i.e. 0
+
+                iv) and the process cotniues till all the nodes are visited (if connected graph)
+        */
+    }

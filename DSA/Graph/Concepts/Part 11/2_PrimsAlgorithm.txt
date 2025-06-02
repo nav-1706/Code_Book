@@ -1,0 +1,10 @@
+Prim's Algorithm --> greedy algorithm:
+
+- Data structured needed: visited set, priority_queue<pair>, unordered map
+- Insert the pair of < -1, src > int the priority_queue pq 
+- one by onbe remove the root eleemnt of pq
+- If the root element is already visited visited, then we will just continue
+- We mark the root visited
+- We will store the wt of the pair int the ans
+- Update the mapping
+- Go to every neighbour of the current element, add only those which are not visited and have a better weight proportion.

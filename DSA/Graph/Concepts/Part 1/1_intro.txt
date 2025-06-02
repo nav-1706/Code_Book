@@ -1,0 +1,52 @@
+Graph is collection of nodes and edges, where each node might or might not point to other node, the node represent real life entity and are connected by edges representing relationship between the node or the entity, tenchincally nodes are called vertex.
+
+Graph also helps in dependency resolution
+
+* Mathematical defination of Graph:
+-----------------------------------
+
+Graph is defined as pair G = (V,E), graph is an ordered pair of set V and set E representing vertices and edges respectively.
+V = { v1, v2, v3, v4, v5 } (set V)
+E = { (v1, v2), (v2, v3), (v3,v8) ..... } (set E)
+
+
+* Types of graphs:
+-----------------------------------
+
+1. Directed and Undirected
+2. Weighted and Unweighted
+
+* Graph Terminlogies:
+------------------------------------
+
+1. Multi grapgh: An Undirected graph in which multiple edges existes between two node.
+
+2. Simple graph: An Undirected graph in which both multiple edges and loops are not allowed.
+
+3. Complete graph: A complete graph is the one in which every node is DIRECTLY(direct edge) connected to every other node.
+
+4. Connected grapgh: In this graph we have a direct or indirect path from one vertex to every other vertex.
+
+# Path: Path Pn is a graph whose vertices can be arranges in a sequence
+Ex: V = { v1, v2, v3,........v(n) }
+E = { v(i), v(i+1) } for each i belongs to [1, n-1]
+
+# Cycle: A cycle is a graph whose vertex can be arranged in cyclic sequence
+Ex: V = { v1, v2, v3,........v(n) }
+E = { v(i), v(i+1) } U { v(n), v(1) } for each i belongs to [1, n-1]
+
+# DAG(directed acyclic graph) --> Directed edges and acyclic
+
+# Degree: Degree of a veretex in a graph is the total number of edges incident towards from it or away from it
+Out degree: total number of outgoing edges
+In degree: total number of incoming edges
+
+# Trees: It is a undirected connected graph with no cycle. If we remove all cycle from garph we get a tree and if we remove an edge from a tree, it is no longer remains connected and called "forest" 
+
+* Facts
+--------------------------------
+# For a tree number of edges = number of vertices-1
+# For forest maximum number of edges = number of vertices-1
+# For a connected graph minimum number of edges = number of vertices-1
+# For a undirected complete graph maximum number of edges = (number of vertices)C2
+# For a directed complete graph maximum number of edges = (number of vertices)(number of vertices-1)

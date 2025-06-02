@@ -1,0 +1,54 @@
+----------------------------------------------
+*DISJOINT SET UNION/UNION FIND STRUCTURE
+----------------------------------------------
+
+We will be having some element and we need to add them/segregate them in different groups/cluster and sometimes we need to identify the groups any element belongs to
+Can help in identifying connected component of the graph
+
+----------------------------------------------
+*TERMINOLOGIES
+----------------------------------------------
+
+# Leader/Parent: To uniquely identify a group we will pick any element from the group and make it the representative/leader/parent of the group, and the group will be called by the name of the leader.
+
+----------------------------------------------
+* FUNCTIONS OF DSU
+----------------------------------------------
+
+1. Union(a,b): Adds the group where 'b' is element to the group where 'a' is element or visa versa ('b' wala 'a' me add hoga, jo resultant group banega uska leader 'a' se ho hoga)
+
+2. find(x)/get(x): This function is used to find, to which group 'x' belongs, we will return the leader/parent of the group to which 'x' belongs.
+
+----------------------------------------------
+* APPROACHES OF IMPLEMENTATION
+----------------------------------------------
+
+********** 1st Approach --> Array Approach **********
+
+Array representation: Index of the array will represent the actual element, the value at index 'i' will represnt the the group 'i' belongs to/leader of the group they belongs to
+initially: all elements belongs to their own group i.e. [0,1,2,3,4,5]
+
+If we perform operation union(0,1) --> 1 jis group se belong karta hai use us group se merge kardo jis se 0 belong karta hai
+1st index par jaao, aur value at 1st index to change karke 1 se 0 kardo
+[0,0,2,3,4,5]
+
+If we have to perform union(2,3) --> Jis group se 3 belong karta hai uska parent laao(3) aur jaha jaha vo parent hai(at value of indexes) use 2 ke group ke leader(2) se replace kar do 
+[0,0,2,2,4,5]
+
+If we perform union(2,1) --> 1 ke group ka leader find karo by arr[1](0), now array me vo element find karo jinka leader bhi yahi hai(i.e. 0,1), now replace them with leader of 2(i.e. 2)
+[2,2,2,2,4,5] --> (0,1,2,3 merge ho gaye)
+
+void union(a,b){
+    parentA = find(a);
+    parentB = find(b);
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i] == parentB){
+            arr[i] = parentA;
+        }
+    }
+}
+TC of find: O(1), TC of union: O(n)
+
+Optimization_1: By size: To optimise this time complexity of O(n), we will merge smaller group to larger group, this will reduce the change(value change) operation when we merger smaller group to any larger group, hence the union TC will reduce to O(logn)
+
+Union by size/union by rank(more optimized) with path compression,  TC = O(*logn) ~= constant
